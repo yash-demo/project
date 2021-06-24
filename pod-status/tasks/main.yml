@@ -7,7 +7,7 @@
       - "app = {{ label }}"
     namespace: jenkins
     field_selectors:
-      - containerStatuses.ready=false
+      - status.phase!=Running
   register: pod_list
   
 - name: Failed pod list 
