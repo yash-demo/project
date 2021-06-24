@@ -15,7 +15,7 @@ pipeline {
       stage('Preparation') {
          steps {
             cleanWs()
-            git 'https://github.com/pipeline-testing/ansible_roles.git'
+            git 'https://github.com/pipeline-testing/project1.git'
          }
       }
       
