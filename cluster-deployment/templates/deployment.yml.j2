@@ -1,0 +1,39 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello
+  namespace: {{ Namespace }}
+spec:
+  replicas: {{ replicas }}
+  selector:
+    matchLabels:
+      app: {{ label }}
+  template:
+    metadata:
+      labels:
+        app: {{ label }}
+    spec:
+      containers:
+      - name: hello
+        image: {{ image_name }}
+        imagePullPolicy: IfNotPresent
+        ports:
+              - containerPort: {{ Port }}
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-service
+  namespace: {{ Namespace }}
+spec:
+  selector:
+    app: {{ label }} 
+  ports:
+    - protocol: TCP
+      port: {{ Port }}
+      targetPort: {{ Port }}
+      nodePort: {{ NodePort }}
+
+  type: NodePort

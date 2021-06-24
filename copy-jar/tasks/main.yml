@@ -1,0 +1,4 @@
+- name: Copy hello-microservice jar file to artifactory
+  copy:
+    src:  ./build/libs/microservice1-0.0.1-SNAPSHOT.jar
+    dest: "{{ jar_path }}"

@@ -1,0 +1,22 @@
+- name: Check pod status
+  kubernetes.core.k8s_info:
+    kubeconfig: ./kube_config/config
+    context: minikube
+    kind: Pod
+    label_selectors:
+      - "app = {{ label }}"
+    namespace: jenkins
+    field_selectors:
+      - containerStatuses.ready=false
+  register: pod_list
+  
+- name: Failed pod list 
+  debug:
+    msg: "{{ item.metadata.name }} "
+  loop: "{{ pod_list.resources }}"
+  loop_control: 
+    label: "{{ item.metadata.name }} "
+
+ 
+
+    

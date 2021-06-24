@@ -1,0 +1,12 @@
+---
+- name: Deployment jinja 2 template
+  template: 
+    src: ../templates/deployment.yml.j2
+    dest: ./common_templates/deployment.yml
+
+- name: Create a Deployment by reading the definition from a yaml file
+  kubernetes.core.k8s:
+    kubeconfig: ./kube_config/config
+    context: minikube  
+    state: present
+    src: ./common_templates/deployment.yml

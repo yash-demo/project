@@ -1,0 +1,13 @@
+---
+- name: Docker jinja 2 template
+  template: 
+    src: ../templates/Dockerfile.j2
+    dest: ./common_templates/Dockerfile
+  
+    
+- name: Build an image from Dockerfile
+  docker_image:
+    build:
+    path: ./common_templates
+    name: "{{ image_name }}"
+    source: build

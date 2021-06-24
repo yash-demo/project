@@ -1,0 +1,3 @@
+FROM adoptopenjdk/openjdk8:ubi
+ADD {{ jar_path }} app.jar
+ENTRYPOINT ["java", "-jar","/app.jar"]
