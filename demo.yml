@@ -9,7 +9,7 @@
        NodePort: 30088
        label: hello
        Namespace: project1-dev
-       jar_path: ../artifactory/microservice1-0.0.1-SNAPSHOT.jar
+       jar_path: artifactory/microservice1-0.0.1-SNAPSHOT.jar
   collections:
     - kubernetes.core
     
