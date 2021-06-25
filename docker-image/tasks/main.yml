@@ -11,3 +11,6 @@
     path: .
     name: "{{ image_name }}"
     source: build
+    repository: 
+    push: yes
+    
