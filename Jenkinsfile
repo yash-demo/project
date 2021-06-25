@@ -15,7 +15,7 @@ pipeline {
       stage('Preparation') {
          steps {
             cleanWs()
-            git 'https://github.com/pipeline-testing/project1.git'
+            git 'https://github.com/yash-demo/project.git'
          }
       }
       
